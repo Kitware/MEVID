@@ -18,7 +18,7 @@ In bbox "0201O003C330T004F00192.jpg", "0201" is the ID of the pedestrian. "O003"
 ![MEVID_statistics](figs/mevid_statistics.png)
 
 ## Installation
-1. Download the dataset in the path "../../mevid". 
+1. Download the dataset in the path "../../mevid". [train]() [test]() [annos]()
 2. Install the required packages according to readme in each algorithm.
 3. Train and evaluate the algorithm with the commands in its readme.
 
@@ -45,7 +45,7 @@ This material is based upon work supported by the United States Air Force under 
 If you use this code in your research, please cite this project as follows:
 
 ```
-@inproceedings{yu2022coat,
+@inproceedings{Davila2023mevid,
   title     = {MEVID: Multi-view Extended Videos with Identities for Video Person Re-Identification},
   author    = {Daniel Davila and
                Dawei Du and
