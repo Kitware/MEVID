@@ -1,11 +1,11 @@
 This repository hosts the source code of our paper: [[WACV 2023] MEVID: Multi-view Extended Videos with Identities for Video Person Re-Identification](https://arxiv.org/pdf/2211.04656.pdf). In this work, we present a new large-scale video person re-identification (ReID) dataset.
 Specifically, we label the identities of 158 unique people wearing 598 outfits taken from 8,092 tracklets, average length of about 590 frames, seen in 33 camera views from the very large-scale [MEVA](https://mevadata.org/) person activities dataset. 
 
-![MEVID](figs/MEVID_figure.png)
+![MEVID_comparison](figs/mevid_figure.png)
 
 **Abstract**: In this paper, we present the Multi-view Extended Videos with Identities (MEVID) dataset for large-scale, video person re-identification (ReID) in the wild. To our knowledge, MEVID represents the most-varied video person ReID dataset, spanning an extensive indoor and outdoor environment across nine unique dates in a 73-day window, various camera viewpoints, and entity clothing changes. Specifically, we label the identities of 158 unique people wearing 598 outfits taken from 8,092 tracklets, average length of about 590 frames, seen in 33 camera views from the very-large-scale MEVA person activities dataset. While other datasets have more unique identities, MEVID emphasizes a richer set of information about each individual, such as: 4 outfits/identity vs. 2 outfits/identity in CCVID, 33 view-points across 17 locations vs. 6 in 5 simulated locations for MTA, and 10 million frames vs. 3 million for LS-VID. Being based on the MEVA video dataset, we also inherit data that is intentionally demographically balanced to the continental United States. To accelerate the annotation process, we developed a semi-automatic annotation framework and GUI that combines state-of-the-art real-time models for object detection, pose estimation, person ReID, and multi-object tracking. We evaluate several state-of-the-art methods on MEVID challenge problems and comprehensively quantify their robustness in terms of changes of outfit, scale, and background location. Our quantitative analysis on the realistic, unique aspects of MEVID shows that there are significant remaining challenges in video person ReID and indicates important directions for future research.
 
-![MEVID](figs/MEVID_cameras.png)
+![MEVID_cameras](figs/mevid-cameras.png)
 
 ## Dataset
 The dataset package is provided on [MEVA](https://mevadata.org/index-2.html) homepage. Similar to [MARS](http://zheng-lab.cecs.anu.edu.au/Project/project_mars.html), it is organized in 2 folders:
@@ -15,6 +15,7 @@ The dataset package is provided on [MEVA](https://mevadata.org/index-2.html) hom
 **Naming Rule of the bboxes**:
 In bbox "0201O003C330T004F00192.jpg", "0201" is the ID of the pedestrian. "O003" denotes the third outfit of this person. "C330" denotes the index of camera. "T004" means the 4th tracklet. "F00192" is the 192th frame within this tracklet. For both tracklets and frames, the index starts from 0.
 
+![MEVID_statistics](figs/mevid_statistics.png)
 
 ## Installation
 1. Download the dataset in the path "../../mevid". 
