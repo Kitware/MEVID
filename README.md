@@ -61,8 +61,3 @@ If you use this code in your research, please cite this project as follows:
   year      = {2023}
 }
 ```
-
-## License
-This work is distributed under the OSI-approved BSD 3-Clause [License](https://github.com/Kitware/COAT/blob/master/LICENSE).
-# MEVID
-# MEVID

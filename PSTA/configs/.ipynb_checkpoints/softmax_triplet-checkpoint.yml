@@ -1,0 +1,70 @@
+MODEL:
+  PRETRAIN_CHOICE: 'imagenet'
+  PRETRAIN_PATH: '.resnet50-19c8e357.pth'
+  IF_LABELSMOOTH: 'on'
+  IF_WITH_CENTER: 'yes'
+  ARCH : 'tem_dense'
+#   LOCAL_RANK : [0,1]
+
+INPUT:
+  SIZE_TRAIN: [256, 128]
+  SIZE_TEST: [256, 128]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 0.5 # random erasing
+  PADDING: 10
+
+DATASETS:
+  SEQ_LEN: 8
+  NAME : 'mars'
+  ROOT_DIR : '/data/yingquan95/MARS'
+
+DATALOADER:
+  SAMPLER: 'softmax_triplet'
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 30
+
+SOLVER:
+  OPTIMIZER_NAME: 'Adam'
+  MAX_EPOCHS: 520
+
+  BASE_LR: 0.00035
+
+#  REFINE_METHOD: 'KNN_dist'
+
+  CLUSTER_MARGIN: 0.3
+
+  CENTER_LR: 0.5
+  CENTER_LOSS_WEIGHT: 0.0005
+
+  RANGE_K: 2
+  RANGE_MARGIN: 0.3
+  RANGE_ALPHA: 0
+  RANGE_BETA: 1
+  RANGE_LOSS_WEIGHT: 1
+
+  BIAS_LR_FACTOR: 1
+  WEIGHT_DECAY: 0.0005
+  WEIGHT_DECAY_BIAS: 0.0005
+  SEQS_PER_BATCH: 32
+
+  STEPS: [70, 140, 210, 310, 410]
+  GAMMA: 0.3
+
+  WARMUP_FACTOR: 0.01
+  WARMUP_ITERS: 10
+  WARMUP_METHOD: 'linear'
+
+  CHECKPOINT_PERIOD: 40
+  LOG_PERIOD: 20
+  EVAL_PERIOD: 40
+
+TEST:
+  SEQS_PER_BATCH: 1
+  RE_RANKING: 'no'
+  WEIGHT: "path"
+
+  FEAT_NORM: 'yes'
+
+OUTPUT_DIR: '/output'
+
+
