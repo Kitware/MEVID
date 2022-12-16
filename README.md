@@ -63,7 +63,7 @@ In bbox "0201O003C330T004F00192.jpg", "0201" is the ID of the pedestrian. "O003"
 | [PiT](https://github.com/deropty/PiT)          | 13.6%| 34.2% |  55.4% |  63.3% | 70.6%  | [[checkpoint]](https://drive.google.com/file/d/1TTY3wDEQmPc_GHuho0P4HdFez2WEHU1Y/view?usp=share_link) [[config]](PiT/datasets/mars.py)|
 | [STMN](https://github.com/cvlab-yonsei/STMN)         | 11.3%| 31.0% |  54.4% |  65.5% | 72.5%  | [[checkpoint]](https://drive.google.com/file/d/1Ysf7q4ZwNFWvMr_ywDMwBZp2Lx88_66V/view?usp=share_link) [[config]](STMN/create_mevid.py)|
 | [Attn-CL](https://github.com/ppriyank/Video-Person-Re-ID-Fantastic-Techniques-and-Where-to-Find-Them)      | 18.6%| 42.1% |  56.0% |  63.6% | 73.1%  | [[checkpoint]](https://drive.google.com/file/d/1NsnDc0GplE0IajOaud5cb8kRHmAEFKYJ/view?usp=share_link) [[config]](Attn-CL/tools/data_manager.py)|
-|[Attn-CL+rerank](https://github.com/ppriyank/Video-Person-Re-ID-Fantastic-Techniques-and-Where-to-Find-Them)| 25.9%| 46.5% |  59.8% |  64.6% | 71.8%  | [model](https://drive.google.com/file/d/1NsnDc0GplE0IajOaud5cb8kRHmAEFKYJ/view?usp=share_link) [[config]](Attn-CL/tools/data_manager.py)|
+|[Attn-CL+rerank](https://github.com/ppriyank/Video-Person-Re-ID-Fantastic-Techniques-and-Where-to-Find-Them)| 25.9%| 46.5% |  59.8% |  64.6% | 71.8%  | [[checkpoint]](https://drive.google.com/file/d/1NsnDc0GplE0IajOaud5cb8kRHmAEFKYJ/view?usp=share_link) [[config]](Attn-CL/tools/data_manager.py)|
 | [AP3D](https://github.com/guxinqian/AP3D)         | 15.9%| 39.6% |  56.0% |  63.3% | 76.3%  | [[checkpoint]](https://drive.google.com/file/d/1oUaRfI9yyfD5PuO2EoJX5UfslVwqkcJ7/view?usp=share_link) [[config]](AP3D/tools/data_manager.py)|
 
 ## Acknowledgement
