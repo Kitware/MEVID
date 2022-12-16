@@ -8,7 +8,7 @@ Specifically, we label the identities of 158 unique people wearing 598 outfits t
 ![MEVID_cameras](figs/mevid-cameras.png)
 
 ## Dataset
-The dataset package is provided on [MEVA](https://mevadata.org/index-2.html) homepage. Similar to [MARS](http://zheng-lab.cecs.anu.edu.au/Project/project_mars.html), it is organized in 2 folders:
+The dataset package is provided on [MEVA](https://mevadata.org/index.html) homepage. Similar to [MARS](http://zheng-lab.cecs.anu.edu.au/Project/project_mars.html), it is organized in 2 folders:
 1) "bbox_train" (6 dates over 9 days): There are 104 global identities in this folder, with 485 outfits in 6,338 tracklets.
 2) "bbox_test" (3 dates over 5 days): There are 54 global identities in this folder (gallery+query), with 113 outfits and 1,754 tracklets.
 
@@ -18,9 +18,9 @@ In bbox "0201O003C330T004F00192.jpg", "0201" is the ID of the pedestrian. "O003"
 ![MEVID_statistics](figs/mevid_statistics.png)
 
 ## Installation
-1. Download the dataset in the path "../../mevid". [train]() [test]() [annos]()
+1. Download the dataset and put it in the path "../../mevid".
 2. Install the required packages according to readme in each algorithm.
-3. Train and evaluate the algorithm with the commands in its readme.
+3. Train and evaluate the algorithm with the commands given in its README.
 
 **Overall Results**:
 |     Method   |  mAP | Top-1 |  Top-5 | Top-10 | Top-20 | Model                                                        |
