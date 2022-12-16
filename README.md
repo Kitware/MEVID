@@ -8,9 +8,16 @@ Specifically, we label the identities of 158 unique people wearing 598 outfits t
 ![MEVID_cameras](figs/mevid-cameras.png)
 
 ## Dataset
-The dataset package is provided on [MEVA](https://mevadata.org/index.html) homepage. Similar to [MARS](http://zheng-lab.cecs.anu.edu.au/Project/project_mars.html), it is organized in 2 folders:
-1) "bbox_train" (6 dates over 9 days): There are 104 global identities in this folder, with 485 outfits in 6,338 tracklets.
-2) "bbox_test" (3 dates over 5 days): There are 54 global identities in this folder (gallery+query), with 113 outfits and 1,754 tracklets.
+The dataset package is provided via the [MEVA](https://mevadata.org/index.html) site. The dataset proper has three components:
+1) `mevid-v1-bbox-train` (6 dates over 9 days): There are 104 global identities in this folder, with 485 outfits in 6,338 tracklets. The training package is available via [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-bbox-train.tgz](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-bbox-train.tgz) (30.5GB)
+2) `mevid-v1-bbox-test` (3 dates over 5 days): There are 54 global identities in this folder (gallery+query), with 113 outfits and 1,754 tracklets. The test package is available via [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-bbox-test.tgz](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-bbox-test.tgz) (13GB)
+3) `mevid-v1-annotation-data`: The associated annotation databases for the test and train folders can be found in [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-annotation-data.zip](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-annotation-data.zip).
+
+Installation instructions for these packages may be found below.
+
+Additional supporting data includes:
+- The supporting 976 5-minute video clips (127GB) are a subset of the [entire MEVA dataset](https://mevadata.org/index.html#getting-data). Alternatively, we have supplied a list of [individual video URLs](mevid-v1-video-URLS.txt); this list may be used with `fetch`, `wget`, etc. to download the individual videos.
+- Actor check-in photos are available at [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-actor-checkin-photos.zip](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-actor-checkin-photos.zip) (600MB).
 
 **Naming Rule of the bboxes**:
 In bbox "0201O003C330T004F00192.jpg", "0201" is the ID of the pedestrian. "O003" denotes the third outfit of this person. "C330" denotes the index of camera. "T004" means the 4th tracklet. "F00192" is the 192th frame within this tracklet. For both tracklets and frames, the index starts from 0.
@@ -18,9 +25,26 @@ In bbox "0201O003C330T004F00192.jpg", "0201" is the ID of the pedestrian. "O003"
 ![MEVID_statistics](figs/mevid_statistics.png)
 
 ## Installation
-1. Download the dataset and put it in the path "../../mevid".
-2. Install the required packages according to readme in each algorithm.
-3. Train and evaluate the algorithm with the commands given in its README.
+1. Check out this repository; for these instructions, we assume it has been checked out into a directory named `mevid-checkout`.
+2. Create a sibling directory to `mevid-checkout` named `mevid`.
+3. Download the `bbox_train`, `bbox_test`, and `mevid-v1-annotation-data` data packages described above.
+4. Unpack each data package in the `mevid` directory. The final directory structure should be:
+```
+.
+├── mevid
+│   ├── bbox_test
+│   │   └── // test data subdirectories
+│   └── bbox_train
+│       └── // train data subdirectories
+└── mevid-checkout
+    ├── agrl
+    ├── cal
+    ├── psta
+    └── // other directories
+
+```
+5. Within mevid-checkout, install the required packages according to readme in each algorithm.
+6. Train and evaluate the algorithm with the commands in its readme.
 
 **Overall Results**:
 |     Method   |  mAP | Top-1 |  Top-5 | Top-10 | Top-20 | Model                                                        |
