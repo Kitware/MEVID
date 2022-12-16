@@ -1,0 +1,82 @@
+MODEL:
+  PRETRAIN_CHOICE: 'imagenet'
+  PRETRAIN_PATH: '/home/zangxh/.cache/torch/checkpoints/jx_vit_base_p16_224-80ecf9dd.pth'
+  METRIC_LOSS_TYPE: 'triplet'
+  IF_LABELSMOOTH: 'off'
+  IF_WITH_CENTER: 'no'
+  NAME: 'transformer'
+  NO_MARGIN: True
+  DEVICE_ID: ('6')
+  TRANSFORMER_TYPE: 'vit_base_patch16_224_PiT'
+  STRIDE_SIZE: [12, 12]
+  SIE_CAMERA: True   # original
+  SIE_COE: 3.0
+  JPM: True           # original
+  RE_ARRANGE: False   # original
+  TRAIN_STRATEGY: 'chunk'
+  SPATIAL: True
+  TEMPORAL: False
+  FREEZE: True
+  PYRAMID0_TYPE: 'horizontal'      # 'horizontal','vertical','patch'
+  LAYER0_DIVISION_TYPE: '1x210'  # the type of division
+  PYRAMID1_TYPE: 'horizontal'
+  LAYER1_DIVISION_TYPE: '3x70'
+  PYRAMID2_TYPE: 'vertical'
+  LAYER2_DIVISION_TYPE: '105x2'
+  PYRAMID3_TYPE: 'patch'
+  LAYER3_DIVISION_TYPE: '6p'
+  PYRAMID4_TYPE: 'horizontal'
+  LAYER4_DIVISION_TYPE: 'NULL'
+  LAYER_COMBIN: 4         # use how many layers of pyramid
+  DIVERSITY: False
+
+INPUT:
+  SIZE_TRAIN: [256, 128]
+  SIZE_TEST: [256, 128]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 0.5 # random erasing
+  RE: True # random erasing
+  PADDING: 10
+  PIXEL_MEAN: [0.5, 0.5, 0.5]
+  PIXEL_STD: [0.5, 0.5, 0.5]
+
+DATASETS:
+  NAMES: ('ilids')
+  ROOT_DIR: ('../../data')
+
+DATALOADER:
+  SAMPLER: 'softmax_triplet'
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 8
+  P: 2
+  K: 4
+  NUM_TEST_IMAGES: 8
+  NUM_TRAIN_IMAGES: 8
+
+SOLVER:
+  OPTIMIZER_NAME: 'SGD'
+  SEED: 1171
+  MAX_EPOCHS: 121
+  BASE_LR: 0.01
+  IMS_PER_BATCH: 64
+  WARMUP_METHOD: 'linear'
+  LARGE_FC_LR: False
+  CHECKPOINT_PERIOD: 20  #
+  LOG_PERIOD: 50
+  EVAL_PERIOD: 20        #
+  WEIGHT_DECAY:  1e-4
+  WEIGHT_DECAY_BIAS: 1e-4
+  BIAS_LR_FACTOR: 2
+  WARMUP_EPOCHS: 5
+
+TEST:
+  EVAL: True
+  IMS_PER_BATCH: 256
+  RE_RANKING: False
+  WEIGHT: ''    # such as '../logs/ilids_PiT_1x210_3x70_105x2_6p'
+  NECK_FEAT: 'before'
+  FEAT_NORM: 'yes'
+
+OUTPUT_DIR: '../logs/ilids_PiT'
+
+
