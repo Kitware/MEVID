@@ -15,7 +15,7 @@ The dataset package is provided via the [MEVA](https://mevadata.org/index.html) 
 
 Installation instructions for these packages may be found below.
 
-Additional supporting data includes:
+**Additional supporting data** includes:
 - The supporting 976 5-minute video clips (127GB) are a subset of the [entire MEVA dataset](https://mevadata.org/index.html#getting-data). Alternatively, we have supplied a list of [individual video URLs](mevid-v1-video-URLS.txt); this list may be used with `fetch`, `wget`, etc. to download the individual videos.
 - Actor check-in photos are available at [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-actor-checkin-photos.zip](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-actor-checkin-photos.zip) (600MB).
 
@@ -35,16 +35,22 @@ In bbox "0201O003C330T004F00192.jpg", "0201" is the ID of the pedestrian. "O003"
 │   ├── bbox_test
 │   │   └── // test data subdirectories
 │   └── bbox_train
-│       └── // train data subdirectories
+|   |   └── // train data subdirectories
+|   ├── track_train_info.txt
+|   ├── track_test_info.txt
+|   ├── train_name.txt
+|   ├── test_name.txt
+|   ├── query_IDX.txt
+|
 └── mevid-checkout
-    ├── agrl
-    ├── cal
-    ├── psta
+    ├── AGRL
+    ├── CAL
+    ├── PSTA
     └── // other directories
 
 ```
-5. Within mevid-checkout, install the required packages according to readme in each algorithm.
-6. Train and evaluate the algorithm with the commands in its readme.
+5. Within mevid-checkout, install the required packages according to README in each algorithm.
+6. Train and evaluate the algorithm with the commands in its README.
 
 **Overall Results**:
 |     Method   |  mAP | Top-1 |  Top-5 | Top-10 | Top-20 | Model                                                        |
@@ -86,3 +92,8 @@ If you use this code in your research, please cite this project as follows:
   year      = {2023}
 }
 ```
+
+
+## Questions / Contact
+
+Please send any questions about MEVID to `mevadata (at) kitware.com`.
