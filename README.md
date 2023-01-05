@@ -72,7 +72,7 @@ This research is based upon work supported in part by the Office of the Director
 This material is based upon work supported by the United States Air Force under Contract No. FA8650-19-C-6036. Any opinions, findings and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the United States Air Force.
 
 ## Citation
-If you use this code in your research, please cite this project as follows:
+If you use this code or the MEVID dataset in your research, please cite this project as follows:
 
 ```
 @inproceedings{Davila2023mevid,
