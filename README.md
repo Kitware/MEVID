@@ -11,7 +11,7 @@ Specifically, we label the identities of 158 unique people wearing 598 outfits t
 The dataset package is provided via the [MEVA](https://mevadata.org/index.html) site. The dataset proper has three components:
 1) `mevid-v1-bbox-train` (6 dates over 9 days): There are 104 global identities in this folder, with 485 outfits in 6,338 tracklets. The training package is available via [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-bbox-train.tgz](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-bbox-train.tgz) (30.5GB)
 2) `mevid-v1-bbox-test` (3 dates over 5 days): There are 54 global identities in this folder (gallery+query), with 113 outfits and 1,754 tracklets. The test package is available via [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-bbox-test.tgz](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-bbox-test.tgz) (13GB)
-3) `mevid-v1-annotation-data`: The associated annotation databases for the test and train folders can be found in [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-annotation-data.zip](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-annotation-data.zip).
+3) `mevid-v1-annotation-data`: The associated annotation databases for the test and train folders can be found in [https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-annotation-data.zip](https://mevadata-public-01.s3.amazonaws.com/mevid-annotations/mevid-v1-annotation-data.zip). Their file formats are described below.
 
 Installation instructions for these packages may be found below.
 
@@ -21,6 +21,39 @@ Installation instructions for these packages may be found below.
 
 **Naming Rule of the bboxes**:
 In bbox "0201O003C330T004F00192.jpg", "0201" is the ID of the pedestrian. "O003" denotes the third outfit of this person. "C330" denotes the index of camera. "T004" means the 4th tracklet. "F00192" is the 192th frame within this tracklet. For both tracklets and frames, the index starts from 0.
+
+**File formats**:
+
+The annotation package `mevid-v1-annotation-data` consists of five files:
+
+1. `query_IDX.txt`
+2. `track_train_info.txt`
+3. `track_test_info.txt`
+4. `train_name.txt`
+5. `test_name.txt`
+
+These files are used by the data loaders in the baseline algorithms; their format is as follows:
+
+`query_IDX.txt`: This is a list of offsets into `track_test_info.txt` that forms the query partition of the test data; images not listed in `query_IDX.txt` form the gallery.
+
+`(train, test)_name.txt`: These are the names of the image chip jpeg files; the names are formatted as described above.
+
+`(train, test)_info.txt`: These track files have five columns:
+
+1. start_index
+2. end_index
+3. person_id
+4. outfit_id
+5. camera_id
+
+Start_index and end_index are offsets into the associated `(train, test)_name.txt` file containing the tracklet chips. For example, the first line of `track_train_info.txt` (after conversion to integers) is `0 9 103 20 424`; this is parsed as:
+
+- The track starts at line #`0` and ends at image #`9` in `train_name.txt`.
+- The person ID is `103`.
+- The outfid ID is `20`.
+- The camera ID is `424`, corresponding to camera G424 in the MEVA dataset.
+
+**Dataset statistics**:
 
 ![MEVID_statistics](figs/mevid_statistics.png)
 
