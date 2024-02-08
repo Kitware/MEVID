@@ -53,6 +53,12 @@ Start_index and end_index are offsets into the associated `(train, test)_name.tx
 - The outfid ID is `20`.
 - The camera ID is `424`, corresponding to camera G424 in the MEVA dataset.
 
+**Annotation toolchain**:
+
+The tool used to annotate MEVID is [available here](https://mevadata-public-01.s3.amazonaws.com/tools/mevid-annotation-tool-snapshot.tgz). The tool is a fork of our [DIVE tool](https://kitware.github.io/dive/), with some specialized components to handle actor linking and data management. The installation process follows the same docker-compose process as that for DIVE in general, [described here](https://github.com/Kitware/dive/blob/main/server/README.md). The specialized components may have some rough edges in terms of hard-coded specific assumptions about the MEVA data (pathnames, number of enrollment pictures, and so forth.)
+
+Our annotation tools are under active development and supported as project funds allow, with no guarantees that issues or feature requests will be addressed on any given timeline. If you have a particular capability you'd like added, Kitware accepts support contracts of virtually any size; contact us at `mevadata (at) kitware.com` for more information.
+
 **Dataset statistics**:
 
 ![MEVID_statistics](figs/mevid_statistics.png)
