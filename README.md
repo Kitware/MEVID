@@ -132,6 +132,9 @@ If you use this code or the MEVID dataset in your research, please cite this pro
 }
 ```
 
+## License
+
+The MEVID data is derived from [MEVA](https://mevadata.org) and shares its CC BY-4.0 license, available [here](MEVA-data-license.txt)).
 
 ## Questions / Contact
 
